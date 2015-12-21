@@ -100,6 +100,7 @@ if (Meteor.isClient) {
 
   Template.home.events({
       "submit .search-zip": function (event) {
+
          //Prevent default browser form submit
         event.preventDefault();
 
@@ -154,7 +155,7 @@ if (Meteor.isServer) {
 
 
   function callAPI () {
-    Meteor.call("eventbriteDataGet", function(error, result){
+   /* Meteor.call("eventbriteDataGet", function(error, result){
         if(error) console.log("The error is " + error)
         var events = JSON.parse(result.content);
         var eventData = events.events;
@@ -190,7 +191,7 @@ if (Meteor.isServer) {
           });
           
         };
-      });
+      });*/
 
      Meteor.call("eventfulDataGet", function(error, result){
         if(error) console.log("The error is " + error);
@@ -224,7 +225,6 @@ if (Meteor.isServer) {
             category: [],
             company_name: "Eventful"
           });
-
         }
       });
 
