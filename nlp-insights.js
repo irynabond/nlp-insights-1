@@ -113,6 +113,7 @@ if (Meteor.isClient) {
         // Clear form
         event.target.text.value = "";
       }
+
     });
 
   Template.lists.helpers({
@@ -120,6 +121,15 @@ if (Meteor.isClient) {
       return Events.find();
     }
   });
+
+   Template.lists.events ({
+    "click .content": function (e) {
+      var id = e.target.parentElement.id;
+      var event = Events.findOne(id);
+      
+    }
+   })
+  
 }
 
 if (Meteor.isServer) {

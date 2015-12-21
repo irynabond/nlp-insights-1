@@ -174,16 +174,14 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-  
   .modal__inner {
     width: 90%;
     height: 90%;
     box-sizing: border-box;
   }
 }
-
-.descr {
-  font-size: 10px;
+.sweet-overlay, .sweet-alert{
+    position: absolute!important;
 }
 
 
