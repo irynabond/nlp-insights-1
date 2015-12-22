@@ -100,20 +100,14 @@ if (Meteor.isClient) {
 
   Template.home.events({
       "submit .search-zip": function (event) {
-
          //Prevent default browser form submit
         event.preventDefault();
-
         // Get value from form element
         var zipNum = event.target.text.value;
-        console.log(zipNum);
-
         Meteor.subscribe("eventData", zipNum);
-
         // Clear form
         event.target.text.value = "";
       }
-
     });
 
   Template.lists.helpers({
@@ -130,20 +124,18 @@ if (Meteor.isClient) {
       if (event.address == "undefined") {
         event.address = "Please check link below."
       };
-    
+
       $('.content').append(
          '<input class="modal-state" id = "modal-1" type = "checkbox">' +
           '<div class="modal">' +
             '<div class="modal__inner">' +
               '<label class="modal__close" for="modal-1"></label>' +
-              '<p class = "info">' + event.name + '</p>' +
-              '<p class = "details">Date and time:</p>' +
-              '<p class = "details">' + event.date + " , " + event.time + '</p>' +
-              '<p class = "details">Address:</p>' +
-              '<p class = "details">' + event.address + '</p>' + 
-              '<p class ="link"><a href=' + event.url + '> Open on ' + event.company_name + '</a></p>' + 
-              '<p class = "details">Description:</p>' +
-              '<p class = "info">' + event.description + '</p>' +
+              '<p class = "title-box inside">' + event.name + '</p>' +
+              '<p class = "details-box inside"> Date and time: '  + event.date + ' , ' + event.time + '</p>' +
+              '<p class = "details-box inside"> Address: ' + event.address + '</p>' + 
+              '<p class ="link inside"><a href=' + event.url + '> Open on ' + event.company_name + '</a></p>' + 
+              '<p class = "details-box inside" id = "description-title">Description:</p>' +
+              '<p class = "details-info-box inside" id = "description">' + event.description + '</p>' +
             '</div>' + 
            '</div>'
         );
@@ -164,7 +156,6 @@ if (Meteor.isServer) {
     return Events.find({zip: zipNum});
 
   });
-
    Meteor.methods({
     eventbriteDataGet: function(){
      this.unblock();
