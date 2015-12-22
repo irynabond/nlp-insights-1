@@ -126,13 +126,23 @@ if (Meteor.isClient) {
     "click .content": function (e) {
       var id = e.target.parentElement.id;
       var event = Events.findOne(id);
-      console.log(event.description)
+      console.log(event);
+      if (event.address == "undefined") {
+        event.address = "Please check link below."
+      };
     
       $('.content').append(
          '<input class="modal-state" id = "modal-1" type = "checkbox">' +
           '<div class="modal">' +
             '<div class="modal__inner">' +
               '<label class="modal__close" for="modal-1"></label>' +
+              '<p class = "info">' + event.name + '</p>' +
+              '<p class = "details">Date and time:</p>' +
+              '<p class = "details">' + event.date + " , " + event.time + '</p>' +
+              '<p class = "details">Address:</p>' +
+              '<p class = "details">' + event.address + '</p>' + 
+              '<p class ="link"><a href=' + event.url + '> Open on ' + event.company_name + '</a></p>' + 
+              '<p class = "details">Description:</p>' +
               '<p class = "info">' + event.description + '</p>' +
             '</div>' + 
            '</div>'
