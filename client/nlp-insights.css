@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 
 body {
-  font-family: 'Roboto', sans-serif; 
+  font-family: 'Roboto', sans-serif;
 
   margin: 0;
   background-color: rgb(238, 238, 238);
@@ -10,13 +10,11 @@ body {
 #background {
   background-color: #287DA6;
     background-image: url('http://images.nationalgeographic.com/wpf/media-live/photos/000/239/custom/23939_1600x1200-wallpaper-cb1282059611.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
     background-position: center top;
     height: 100%;
     width: 100%;
     position: relative;
-    color: #ffffff;
+    color: #F5FFFA;
     padding-bottom: 40px;
     padding-top: 40px;
     text-align: center;
@@ -27,7 +25,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #F5FFFA;
-  padding-top: 60px;
+  padding-top: 70px;
   text-align: center;
   font-size: 38px;
 }
@@ -55,7 +53,7 @@ template {
   display: inline-block;
   background: white;
   height: 15rem;
-  vertical-align: top; 
+  vertical-align: top;
   cursor: pointer;
 
 }
@@ -89,7 +87,6 @@ p {
   padding-top: 5px;
 }
 
-/*pop-up box styling*/
 .modal {
   opacity: 0;
   visibility: hidden;
@@ -203,8 +200,57 @@ p {
 .modal__inner .link {
   font-size: 1.15rem;
 }
+.nav {
+  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.active {
+  float: left;
+}
+
+.active a {
+  display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.active a:hover {
+  background-color: #111;
+}
+
+.profile-card {
+  padding: 1rem;
+  margin: 2rem 0;
+  align-items: center;
+  justify-content: center;
+  }
+  .profile-card img {
+    width: 8rem;
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    box-shadow: 2px 2px 5px #888888; }
+  .profile-card .profile-info {
+    padding: 1rem; }
+    .profile-card .profile-info h4 {
+      margin-top: 0;
+      text-align: center;
+      text-transform: uppercase; }
+    .profile-card .profile-info p {
+      text-align: center; }
 
 
-
-
+.features-par {
+  font-family: 'Source Sans Pro';
+  margin: auto;
+  font-size: 22px;
+  font-weight: 150px;
+  text-align: center;
+}
 
