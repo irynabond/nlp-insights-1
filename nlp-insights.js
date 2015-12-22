@@ -126,11 +126,26 @@ if (Meteor.isClient) {
     "click .content": function (e) {
       var id = e.target.parentElement.id;
       var event = Events.findOne(id);
-      
+      console.log(event.description)
+    
+      $('.content').append(
+         '<input class="modal-state" id = "modal-1" type = "checkbox">' +
+          '<div class="modal">' +
+            '<div class="modal__inner">' +
+              '<label class="modal__close" for="modal-1"></label>' +
+              '<p class = "info">' + event.description + '</p>' +
+            '</div>' + 
+           '</div>'
+        );
+    },
+    "click .modal__close": function (e) {
+      $( ".modal-state" ).remove();
+      $('.modal').remove();
     }
+    
    })
-  
 }
+
 
 if (Meteor.isServer) {
 
@@ -251,7 +266,6 @@ if (Meteor.isServer) {
              var year = dateTime.getFullYear();
              var hour = dateTime.getHours();
              var minute = dateTime.getMinutes();
-
             var dates = day+ " "+ month + " " + year;
              var minuteBuilder = function(minute){
                if (minute == 0) minute = "00";
@@ -259,7 +273,6 @@ if (Meteor.isServer) {
              }
              var minutes = minuteBuilder(minute);
              var times = hour + ":" + minutes;
-
              Events.insert({
                name: events[i].name,
                description: events[i].description,
@@ -282,30 +295,23 @@ if (Meteor.isServer) {
      /* Meteor.call("strangerDataGet", function(error, result){
            if(error) console.log("The StrangerDataGet error is " + error)
            console.log("new stranger data coming");
-
            var events = JSON.parse(result.content);
            var eventData = events.results.collection1;
-
            for(var i = 0; i < eventData.length -1; i++){
-
              var monthNumReturn = function(monthName){
                var monthNames = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July',
                'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
                return monthNames.indexOf(monthName);
              };
-
              var yearReturn = function(){
                var time = new Date();
                var year = time.getFullYear();
                return year;
              };
-
              var year = yearReturn()
              var monthNum = monthNumReturn(eventData[i].Month);
              var dates = eventData[i].Day + " " + monthNum + " " +  year;
              var neighborhood = eventData[i].Venue.text + " in " + eventData[i].Neighborhood;
-
              Events.insert({
                name: eventData[i].Title.text,
                description: "Please see the url for a description",
@@ -320,7 +326,6 @@ if (Meteor.isServer) {
                category:[],
                venue_url: eventData[i].Venue.href,
                price: eventData[i].Price
-
              });
            };
         //end stranger call
