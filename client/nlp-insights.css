@@ -1,14 +1,22 @@
 /* CSS declarations go here */
 
 body {
-  font-family: 'Roboto', sans-serif;
-
   margin: 0;
   background-color: rgb(238, 238, 238);
+  font-family: 'Roboto', sans-serif;
+}
+
+input[type="submit"], input[type="submit"]:hover, 
+input[type="submit"]:active,
+input[type="submit"]:focus, input[type="submit"]:visited {
+    background-color: transparent;  
+    border: 1px solid rgb(238,238,238);
+    line-height: 38px;
+    padding: 0 30px;
+    outline: 0;
 }
 
 #background {
-  background-color: #287DA6;
     background-image: url('http://images.nationalgeographic.com/wpf/media-live/photos/000/239/custom/23939_1600x1200-wallpaper-cb1282059611.jpg');
     background-position: center top;
     height: 100%;
@@ -19,9 +27,7 @@ body {
     padding-top: 40px;
     text-align: center;
 }
-
  .title {
-  font-family: 'Source Sans Pro';
   font-weight: 300;
   color: #F5FFFA;
   padding-top: 70px;
@@ -30,7 +36,6 @@ body {
 }
 
 .date-pick-title{
-  font-family: 'Source Sans Pro';
   font-weight: 300;
   margin-top: 20px;
   text-align: center;
@@ -264,6 +269,7 @@ p {
   .profile-card .profile-info {
     padding: 1rem;
   }
+  
     .profile-card .profile-info h4 {
       margin-top: 0;
       text-align: center;
@@ -272,12 +278,10 @@ p {
     .profile-card .profile-info p {
       text-align: center;
     }
-
-
 .features-par {
-  font-family: 'Source Sans Pro';
   margin: auto;
   font-size: 22px;
   font-weight: 150px;
   text-align: center;
 }
+
